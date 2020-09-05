@@ -1,7 +1,6 @@
 {
   "name": "edu_prepvii_bmw",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,9 +16,14 @@
   },
   "homepage": "https://github.com/outboxafrica/edu_prepvii_bmw#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.2"
-  }
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.2",
+    "nodemon": "^2.0.4"
+  },
+  "keywords": [],
+  "description": ""
 }
