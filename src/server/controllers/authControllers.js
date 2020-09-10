@@ -2,26 +2,18 @@ const Usermodel =require('../models/User');
 const jwt = require('jsonwebtoken');
 const userScheme = require('../models/schemas/user');
 
-
-module.exports.signup_get = (req,res) =>{
-  // res.json(newUser);
-}
-
-module.exports.login_get = (req,res) =>{
-  // res.json(newUser);
- }
 //creating token
 const createToken = (id) =>{
-  return jwt.sign({id},'secret');
+  return jwt.sign({id}, process.env.SECRET);
 }
 
 
   module.exports.signup_post = (req,res) =>{
-   const{user,pass} = req.body;
+   const{username,password} = req.body;
 
    let newUser = new Usermodel({
-    username:user,
-    password:pass
+    username:username,
+    password:password
    })
    newUser.save()
    .then((newUser) => {
@@ -35,13 +27,13 @@ const createToken = (id) =>{
    }
 
 module.exports.login_post = async(req,res) =>{
-  const{user,pass} = req.body;  
+  const{username,password} = req.body;  
   
   try{
-      const newUser = await Usermodel.login(user,pass);
+      const newUser = await Usermodel.login(username,password);
       const token = createToken(newUser._id);
       res.cookie('jwt',token);
-      res.json({newUser:newUser,token:token});
+      res.redirect('/api/');
     }
     catch(err){
       res.json(err.message);

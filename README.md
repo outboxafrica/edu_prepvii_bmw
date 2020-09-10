@@ -20,7 +20,6 @@
             |   |-- envTypes.js
             |-- controllers
             |   |-- authControllers.js
-            |   |-- authMiddleware.js
             |   |-- qnControllers.js
             |-- models
             |   |-- Questions.js
@@ -119,4 +118,4 @@ Signs in a single user into the Application.
 <br/>
 
 ## Remarks
-More features to be added in the near future
+Project still under build 

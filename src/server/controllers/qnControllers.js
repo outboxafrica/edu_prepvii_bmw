@@ -32,11 +32,11 @@ module.exports.delete_get = (req, res) => {
 };
 //create question
 module.exports.create_post = (req, res) => {
-  const { user, qn, ans } = req.body;
+  const { username, question, answer} = req.body;
   let newQn = new Qnmodel({
-    username: user,
-    question: qn,
-    answer: ans
+    username: username,
+    question: question,
+    answer: answer
   })
   newQn.save()
     .then((newQn) => {
