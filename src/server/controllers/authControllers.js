@@ -42,7 +42,6 @@ module.exports.login_post = async(req,res) =>{
       const token = createToken(newUser._id);
       res.cookie('jwt',token);
       res.json({newUser:newUser,token:token});
-      // res.redirect('/api/');
     }
     catch(err){
       res.json(err.message);
