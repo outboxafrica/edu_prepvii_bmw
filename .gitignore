@@ -1,2 +1,5 @@
-node_module
-.env
+/node_module
+npm-debug.log
+.DS_Store
+/*.env
+

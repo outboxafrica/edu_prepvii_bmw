@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "> Q & A platform where people can ask questions and provide responses.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,6 +17,16 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.2"
-  }
+    "mongoose": "^5.10.4",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/outboxafrica/edu_prepvii_bmw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/outboxafrica/edu_prepvii_bmw/issues"
+  },
+  "homepage": "https://github.com/outboxafrica/edu_prepvii_bmw#readme"
 }
