@@ -1,3 +1,8 @@
 node_modules
-
+public
+views
+README.md
+package-locks.json
+package.json
+src
 .env
