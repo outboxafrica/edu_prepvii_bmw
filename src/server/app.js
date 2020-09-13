@@ -5,9 +5,11 @@ const authRoutes = require('./routes/authRouter');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const path = require('path');
-
 const app = express();
+
+//accessing static files 
+app.use(express.static('src/server/public'))
+
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
