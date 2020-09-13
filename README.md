@@ -15,9 +15,6 @@
         |-- index.js' ** the main driver of the app'
         |-- server
             |-- app.js
-            |-- config
-            |   |-- connect.js
-            |   |-- envTypes.js
             |-- controllers
             |   |-- authControllers.js
             |   |-- qnControllers.js
@@ -36,10 +33,8 @@
 
 ## Environment Variables
 
-* PORT -- `server port number`
 * DB_URL -- `database URL`
 * SECRET -- `Secret key for verifying the token`
-* NODE_ENV -- `Specifies the Server environment (development, local)`
 
 ## Usage
 1. `clone` this repository.
