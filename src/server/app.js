@@ -1,9 +1,9 @@
 
 const express = require('express');
-// const qnRoutes = require('./routes/qnRouter');
-const qnRoutes = require('./server/routes/qnRouter');
-// const authRoutes = require('./routes/authRouter');
-const authRoutes = require('./server/routes/authRouter');
+const qnRoutes = require('./routes/qnRouter');
+
+const authRoutes = require('./routes/authRouter');
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 

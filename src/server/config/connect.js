@@ -25,7 +25,7 @@ function establishConnection() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
-      useCreateIndex: true,
+      useCreateIndex: true
     })
     .then(() => {
       console.info("\nDatabase Connection Established!");
