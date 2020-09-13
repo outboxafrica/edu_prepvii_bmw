@@ -2,12 +2,15 @@
 
 require("dotenv").config();
 const mongoose = require("mongoose");
-const { DEVELOPMENT, LOCAL } = require("./envTypes");
+const { DEVELOPMENT, PRODUCTION, LOCAL } = require("./envTypes");
 
 let DB_URL;
 switch (process.env.NODE_ENV) {
   case DEVELOPMENT:
     DB_URL = process.env.DB_URL_DEV;
+    break;
+  case PRODUCTION:
+    DB_URL = process.env.DB_URL_PROD;
     break;
   case LOCAL:
     DB_URL = process.env.DB_URL_LOC;
