@@ -8,6 +8,7 @@ const CommentSchema = new Schema({
     userId:{type: String, required:true},
 
     createdAt:{type:Date ,default:Date.now},
+    // timestamps:{createdAt: 'created_at'},
 
     post:[{type:Schema.Types.ObjectId,ref:'Posts'}]
 

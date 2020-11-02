@@ -17,7 +17,7 @@ router.get('/posts',auth.validateToken,postController.get_posts)
 router.delete('/deletepost/:id',auth.validateToken,postController.delete_posts)
 
 //--------------------------Comment-Endpoints---------------------//
-router.post('/comments',auth.validateToken,commentController.post_comments)
+router.post('/comments/:postId',auth.validateToken,commentController.post_comments)
 router.get('/comments',auth.validateToken,commentController.get_comments)
 
 module.exports = router;

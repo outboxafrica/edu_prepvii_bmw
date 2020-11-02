@@ -1,4 +1,5 @@
 const CommentModel = require('../models/Comments');
+const PostModel = require('../models/Posts');
 
 
 
@@ -14,13 +15,22 @@ const CommentModel = require('../models/Comments');
        
        const newComment = new CommentModel({
          comment,
-         userId:req.user
+         userId:req.id
        });
 
        newComment.save()
        .then((result) =>{
-         res.json(result);
+        //  res.json(result);
+         return PostModel.findById(req.params.postId);
        })
+       .then(existingPost =>{
+        existingPost.comment.push(newComment)
+        existingPost.save();
+        res.status(200).json({
+          data:newComment
+      })
+       })
+      
      }
 
      catch(err){
@@ -32,7 +42,8 @@ const CommentModel = require('../models/Comments');
     //------------------------Get-Comments------------------------------------//
 
     module.exports.get_comments = async(req,res) =>{
-    CommentModel.find({userId:req.user})
+    // CommentModel.find({userId:req.user})
+    CommentModel.find({userId:req.id})
      .then((result) =>{
       res.json(result)
      })

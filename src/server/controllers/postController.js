@@ -2,6 +2,7 @@ const PostModel = require('../models/Posts');
 
 
 
+
 //-----------------------------Posts------------------------------------//
 
    module.exports.post_posts = (req,res) =>{
@@ -10,11 +11,14 @@ const PostModel = require('../models/Posts');
 
        if(!post){ 
         return res.status(400).json({ msg: 'Field is Empty' });
+        // console.log(req.id)
        }
-       
+   
        const newPost = new PostModel({
          post,
-         userId:req.user
+        //  userId:req.user
+         userId:req.id
+    
        });
 
        newPost.save()
@@ -32,7 +36,8 @@ const PostModel = require('../models/Posts');
     //------------------------Get-Posts------------------------------------//
 
     module.exports.get_posts = async(req,res) =>{
-    PostModel.find({userId:req.user})
+    // PostModel.find({userId:req.user})
+    PostModel.find({userId:req.id})
      .then((result) =>{
       res.json(result)
      })
@@ -42,7 +47,8 @@ const PostModel = require('../models/Posts');
 module.exports.delete_posts = async(req, res) => {
 
   //validate if user has post to delete
- const post = await PostModel.findOne({userId:req.user, _id:req.params.id});
+//  const post = await PostModel.findOne({userId:req.user, _id:req.params.id});
+ const post = await PostModel.findOne({userId:req.id, _id:req.params.id});
  if(!post){
   return res.status(400).json({ msg: 'Post does not exist with this Id' });
  }

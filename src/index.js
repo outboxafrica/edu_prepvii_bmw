@@ -4,8 +4,8 @@ const app = require("./server/app");
 
 //--------------------------DB-connection------------------------//
 
-// const dbURI =  process.env.DB_URL_PROD ;
-const dbURI =  process.env.DB_URL_LOC ;
+const dbURI =  process.env.DB_URL_PROD ;
+// const dbURI =  process.env.DB_URL_LOC ;
 
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
