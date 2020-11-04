@@ -65,12 +65,11 @@ module.exports.login_post = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.SECRET);
         res.json({
             token,
-            // user: {
-            //     id: user._id,
-            //     username
-            // }
-            id: user._id,
-            username
+            user: {
+                id: user._id,
+                username
+            }
+
 
         })
     }
@@ -86,7 +85,7 @@ module.exports.validateToken = async (req, res, next) => {
 
         const token = req.header('x-auth-token');
         if (!token) {
-            return res.status(401).json({ msg: 'No authentication token, authorization denied' })
+            return res.status(401).json({ msg: 'Access Denied! Register Or Login First' })
         }
 
         const verified = jwt.verify(token, process.env.SECRET)
@@ -94,15 +93,9 @@ module.exports.validateToken = async (req, res, next) => {
         if (!verified) {
             return res.status(401).json({ msg: 'Token verification failed, authorization denied' })
         }
-        // req.user = verified.id;
-    
-            req.id = verified.id;
-        //  res.json({
+        req.user = verified.id;
 
-        //     id:verified.id,
-        //     username:user.username,
-        //     createdAt:user.createdAt
-        // })
+
         next();
 
     }
@@ -115,10 +108,9 @@ module.exports.validateToken = async (req, res, next) => {
 module.exports.user_get = async (req, res) => {
 
     try {
-        // const logedUser = await User.findById(req.user)
-        const logedUser = await User.findById(req.id)
-        // console.log(logedUser);
-        
+        const logedUser = await User.findById(req.user)
+
+
         res.json({
             username: logedUser.username,
             id: logedUser._id
